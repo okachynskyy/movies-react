@@ -4,7 +4,7 @@ export class App extends React.PureComponent {
   render() {
     return (
       <main>
-        Helo world
+        Hello world
       </main>
     );
   }
