@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = merge(common, {
   mode: 'development',
@@ -11,6 +12,13 @@ module.exports = merge(common, {
     hot: true
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new ExtractTextPlugin({
+      filename: "style.css",
+      disable: true
+    })
   ],
+  devServer: {
+    hot: true
+  }
 });

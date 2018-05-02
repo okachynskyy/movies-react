@@ -1,0 +1,11 @@
+@import '~normalize.css';
+@import './styles/header';
+@import './styles/site-name';
+@import './styles/search-field';
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
