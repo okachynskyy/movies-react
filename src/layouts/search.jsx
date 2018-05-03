@@ -5,6 +5,7 @@ import { SearchField } from '../components/search-field';
 import { SearchControls } from '../components/search-controls';
 import { SubHeader } from '../components/sub-header';
 import { MovieList } from '../components/movie-list'
+import { SearchCounter } from '../components/search-counter';
 import './search.scss';
 
 export class SearchLayout extends React.Component {
@@ -67,7 +68,7 @@ export class SearchLayout extends React.Component {
           </div>
         </Header>
         <SubHeader>
-          SubHeader
+          <SearchCounter count={4} />
         </SubHeader>
         <MovieList movies={this.movies} />
       </React.Fragment>
