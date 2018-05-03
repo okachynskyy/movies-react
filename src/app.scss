@@ -6,6 +6,12 @@
 @import './styles/button';
 @import './styles/search-controls';
 @import './styles/sub-header';
+@import './styles/movie-list';
+@import './styles/movie-box';
+
+* {
+  box-sizing: border-box;
+}
 
 input:focus,
 select:focus,
@@ -17,4 +23,15 @@ button:focus {
 body {
   font-family: sans-serif;
   min-width: 700px;
+}
+
+.container {
+  max-width: 1000px;
+  position: relative;
+  margin: 0 auto;
+
+  @media screen and (max-width: 1100px) {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
 }

@@ -1,0 +1,42 @@
+.movie-box {
+  display: inline-block;
+  margin: 30px 30px;
+
+  .movie-image {
+    width: 260px;
+    display: block;
+  }
+
+  .movie-info {
+    margin-top: 8px;
+    overflow: hidden;
+    width: 260px;
+
+    .title {
+      display: inline-block;
+      text-transform: uppercase;
+      text-align: left;
+      width: calc(100% - 40px);
+    }
+
+    .year {
+      float: right;
+      border: 1px solid gray;
+      padding: 2px;
+      text-align: center;
+      font-size: 14px;
+      width: 40px;
+    }
+
+    .genres {
+      display: block;
+      text-align: left;
+      margin-top: 8px;
+      font-size: 14px;
+      span {
+        display: inline-block;
+        margin-right: 5px;
+      }
+    }
+  }
+}
