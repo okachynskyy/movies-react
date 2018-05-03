@@ -4,7 +4,7 @@
   position: relative;
   margin: 0 auto;
   padding-top: 30px;
-  padding-bottom: 50px;
+  padding-bottom: 40px;
 
 
   .search-header {
@@ -14,5 +14,9 @@
     font-size: 26px;
     font-weight: bold;
     text-transform: uppercase;
+  }
+
+  .search-controls {
+    margin-top: 25px;
   }
 }

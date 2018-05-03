@@ -2,10 +2,18 @@
 @import './styles/header';
 @import './styles/site-name';
 @import './styles/search-field';
+@import './styles/search-filters';
+@import './styles/button';
+@import './styles/search-controls';
 
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
     outline: none;
+}
+
+body {
+  font-family: sans-serif;
+  min-width: 700px;
 }
