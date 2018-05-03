@@ -3,6 +3,7 @@ import { Header } from '../components/header';
 import { SiteName } from '../components/site-name';
 import { SearchField } from '../components/search-field';
 import { SearchControls } from '../components/search-controls';
+import { SubHeader } from '../components/sub-header';
 import './search.scss';
 
 export class SearchLayout extends React.PureComponent {
@@ -17,6 +18,9 @@ export class SearchLayout extends React.PureComponent {
             <SearchControls />
           </div>
         </Header>
+        <SubHeader>
+          SubHeader
+        </SubHeader>
       </React.Fragment>
     );
   }
