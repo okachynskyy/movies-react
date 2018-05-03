@@ -4,56 +4,28 @@ import { MovieBox } from './movie-box';
 export class MovieList extends React.Component {
   constructor() {
     super();
-    this.movies = [
-      {
-        poster_path: 'https://image.tmdb.org/t/p/w500/6o0UWX2naW7HK45PDNYmoMIk5qs.jpg',
-        title: 'No Country for Old Men',
-        release_date: '2007',
-        genres: [
-          'Crime',
-          'Drama',
-          'Thriller'
-        ],
-      },
-      {
-        poster_path: 'https://image.tmdb.org/t/p/w500/6o0UWX2naW7HK45PDNYmoMIk5qs.jpg',
-        title: 'No Country for Old Men',
-        release_date: '2007',
-        genres: [
-          'Crime',
-          'Drama',
-          'Thriller'
-        ],
-      },
-      {
-        poster_path: 'https://image.tmdb.org/t/p/w500/6o0UWX2naW7HK45PDNYmoMIk5qs.jpg',
-        title: 'No Country for Old Men',
-        release_date: '2007',
-        genres: [
-          'Crime',
-          'Drama',
-          'Thriller'
-        ],
-      },
-      {
-        poster_path: 'https://image.tmdb.org/t/p/w500/6o0UWX2naW7HK45PDNYmoMIk5qs.jpg',
-        title: 'No Country for Old Men',
-        release_date: '2007',
-        genres: [
-          'Crime',
-          'Drama',
-          'Thriller'
-        ],
-      }
-    ];
   }
+
+  renderMovies() {
+    return this.props.movies.map(movie => (
+      <MovieBox movie={movie} key={movie.id} />
+    ));
+  }
+
+  renderMessage() {
+    return (
+      <div className="message">
+        {this.props.message ? this.props.message : 'No films found'}
+      </div>
+    );
+  }
+
+
   render() {
     return (
       <div className="movie-list">
         <div className="container">
-          {this.movies.map(movie => (
-            <MovieBox movie={movie} key={movie.id} />
-          ))}
+          {this.props.movies.length ? this.renderMovies() : this.renderMessage()}
         </div>
       </div>
     );
