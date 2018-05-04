@@ -1,11 +1,9 @@
 import * as React from "react";
 
-export class Header extends React.PureComponent {
-  render() {
-    return (
-      <header className="main-header">
-        {this.props.children}
-      </header>
-    );
-  }
+export function Header(props) {
+  return (
+    <header className="main-header">
+      {props.children}
+    </header>
+  );
 }

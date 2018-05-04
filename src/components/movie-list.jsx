@@ -20,7 +20,6 @@ export class MovieList extends React.Component {
     );
   }
 
-
   render() {
     return (
       <div className="movie-list">

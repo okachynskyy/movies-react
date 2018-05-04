@@ -8,8 +8,11 @@ export class MovieBox extends React.PureComponent {
         <div className="movie-info">
           <div className="title">{this.props.movie.title}</div>
           <div className="year">{this.props.movie.release_date}</div>
-          <div className="genres">{this.props.movie.genres.map(genre => (<span>{genre}</span>))}</div>
-          <div></div>
+          <div className="genres">
+            {this.props.movie.genres.map(genre => (
+              <span key={genre}>{genre}</span>
+            ))}
+          </div>
         </div>
       </div>
     );

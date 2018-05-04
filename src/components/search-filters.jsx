@@ -1,21 +1,18 @@
 import * as React from "react";
-import {SearchModeButton} from './search-mode-button';
+import { SearchModeButton } from './search-mode-button';
 
 export class SearchFilters extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      isTitleEnabled: true,
-      isGenreEnabled: false
-    }
-  }
-  handleTitleClick() {
-    this.setState({isTitleEnabled: true, isGenreEnabled: false});
+  state = {
+    isTitleEnabled: true,
+    isGenreEnabled: false
   }
 
-  handleGenreClick() {
-    this.setState({isTitleEnabled: false, isGenreEnabled: true});
+  handleTitleClick = () => {
+    this.setState({ isTitleEnabled: true, isGenreEnabled: false });
+  }
+
+  handleGenreClick = () => {
+    this.setState({ isTitleEnabled: false, isGenreEnabled: true });
   }
 
   render() {
@@ -24,14 +21,10 @@ export class SearchFilters extends React.Component {
         <span className="filters-caption">Search by</span>
         <SearchModeButton
           active={this.state.isTitleEnabled}
-          onClick={this
-          .handleTitleClick
-          .bind(this)}>Title</SearchModeButton>
+          onClick={this.handleTitleClick}>Title</SearchModeButton>
         <SearchModeButton
           active={this.state.isGenreEnabled}
-          onClick={this
-          .handleGenreClick
-          .bind(this)}>Genre</SearchModeButton>
+          onClick={this.handleGenreClick}>Genre</SearchModeButton>
       </div>
     );
   }

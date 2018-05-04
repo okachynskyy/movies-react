@@ -1,14 +1,15 @@
 import * as React from "react";
-import {Button} from './button';
+import { Button } from './button';
 
-export class SearchModeButton extends React.Component {
+export class SearchModeButton extends React.PureComponent {
   render() {
     return (
       <Button
         onClick={this.props.onClick}
         className={"btn-sm search-mode-btn " + (this.props.active
-        ? 'btn-red'
-        : 'btn-gray')}>{this.props.children}</Button>
+          ? 'btn-red'
+          : 'btn-gray')}>{this.props.children}
+      </Button>
     );
   }
 }

@@ -6,8 +6,8 @@ export class SortItem extends React.PureComponent {
       <span
         onClick={this.props.onClick}
         className={"sort-item" + (this.props.active
-        ? " active"
-        : "")}>
+          ? " active"
+          : "")}>
         {this.props.children}
       </span>
     );

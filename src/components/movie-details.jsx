@@ -4,7 +4,7 @@ export class MovieDetails extends React.PureComponent {
   render() {
     return (
       <div className="movie-details container">
-        <img className="movie-image" src={this.props.movie.poster_path}/>
+        <img className="movie-image" src={this.props.movie.poster_path} />
         <div className="movie-info">
           <div className="title">{this.props.movie.title}</div>
           <div className="rating">{this.props.movie.vote_average}</div>
