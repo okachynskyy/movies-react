@@ -1,13 +1,13 @@
 import * as React from "react";
-import { Header } from '../components/header';
-import { SiteName } from '../components/site-name';
-import { SearchField } from '../components/search-field';
-import { SearchControls } from '../components/search-controls';
-import { SubHeader } from '../components/sub-header';
-import { MovieList } from '../components/movie-list'
-import { SearchCounter } from '../components/search-counter';
-import { SortControls } from '../components/sort-controls';
-import { Footer } from '../components/footer';
+import {Header} from '../components/header';
+import {Content} from '../components/content';
+import {Footer} from '../components/footer';
+
+import {SearchBlock} from '../components/search-block';
+import {SubHeader} from '../components/sub-header';
+import {SearchCounter} from '../components/search-counter';
+import {SortControls} from '../components/sort-controls';
+import {MovieList} from '../components/movie-list'
 import './search.scss';
 
 export class SearchLayout extends React.Component {
@@ -18,41 +18,22 @@ export class SearchLayout extends React.Component {
         poster_path: 'https://image.tmdb.org/t/p/w500/6o0UWX2naW7HK45PDNYmoMIk5qs.jpg',
         title: 'No Country for Old Men',
         release_date: '2007',
-        genres: [
-          'Crime',
-          'Drama',
-          'Thriller'
-        ],
-      },
-      {
+        genres: ['Crime', 'Drama', 'Thriller']
+      }, {
         poster_path: 'https://image.tmdb.org/t/p/w500/6o0UWX2naW7HK45PDNYmoMIk5qs.jpg',
         title: 'No Country for Old Men',
         release_date: '2007',
-        genres: [
-          'Crime',
-          'Drama',
-          'Thriller'
-        ],
-      },
-      {
+        genres: ['Crime', 'Drama', 'Thriller']
+      }, {
         poster_path: 'https://image.tmdb.org/t/p/w500/6o0UWX2naW7HK45PDNYmoMIk5qs.jpg',
         title: 'No Country for Old Men',
         release_date: '2007',
-        genres: [
-          'Crime',
-          'Drama',
-          'Thriller'
-        ],
-      },
-      {
+        genres: ['Crime', 'Drama', 'Thriller']
+      }, {
         poster_path: 'https://image.tmdb.org/t/p/w500/6o0UWX2naW7HK45PDNYmoMIk5qs.jpg',
         title: 'No Country for Old Men',
         release_date: '2007',
-        genres: [
-          'Crime',
-          'Drama',
-          'Thriller'
-        ],
+        genres: ['Crime', 'Drama', 'Thriller']
       }
     ];
 
@@ -61,21 +42,21 @@ export class SearchLayout extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Header>
-          <div className="container search-container">
-            <SiteName />
-            <h1 className="search-header">Find your movie</h1>
-            <SearchField />
-            <SearchControls />
-          </div>
-        </Header>
-        <SubHeader>
-          <SearchCounter count={4} />
-          <SortControls />
-        </SubHeader>
-        <MovieList movies={this.movies} />
 
-        <Footer />
+        <Header>
+          <SearchBlock/>
+          <SubHeader>
+            <SearchCounter count={4}/>
+            <SortControls/>
+          </SubHeader>
+        </Header>
+
+        <Content>
+          <MovieList movies={this.movies}/>
+        </Content>
+
+        <Footer/>
+
       </React.Fragment>
     );
   }
