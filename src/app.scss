@@ -1,16 +1,16 @@
-@import '~normalize.css';
-@import './styles/header';
-@import './styles/site-name';
-@import './styles/search-field';
-@import './styles/search-filters';
-@import './styles/button';
-@import './styles/search-controls';
-@import './styles/sub-header';
-@import './styles/movie-list';
-@import './styles/movie-box';
-@import './styles/sort-item';
-@import './styles/footer';
-@import './styles/movie-details';
+@import url("~normalize.css");
+
+@import "./styles/header";
+@import "./styles/site-name";
+@import "./styles/search-field";
+@import "./styles/search-filters";
+@import "./styles/search-controls";
+@import "./styles/sub-header";
+@import "./styles/movie-list";
+@import "./styles/movie-box";
+@import "./styles/sort-item";
+@import "./styles/footer";
+@import "./styles/movie-details";
 
 * {
   box-sizing: border-box;
@@ -20,7 +20,7 @@ input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-    outline: none;
+  outline: none;
 }
 
 body {
@@ -38,7 +38,6 @@ body {
     padding-right: 100px;
   }
 }
-
 
 // https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
 
@@ -62,6 +61,7 @@ html, body {
   padding: var(--space) var(--space) 0;
   width: 100%;
 }
+
 .main-content::after {
   content: '\00a0'; /* &nbsp; */
   display: block;
@@ -69,10 +69,12 @@ html, body {
   height: 0px;
   visibility: hidden;
 }
+
 @media (--break-lg) {
   .main-content {
     padding-top: var(--space-lg);
   }
+
   .main-content::after {
     margin-top: var(--space-lg);
   }
@@ -81,6 +83,7 @@ html, body {
 .main-content--full {
   padding: 0;
 }
+
 .main-content--full::after {
   content: none;
 }

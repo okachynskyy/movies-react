@@ -18,9 +18,27 @@ module.exports = {
       },
       {
         test: /\.scss$/,
+        exclude: path.resolve(__dirname, "src/components/button/"),
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
           use: ["css-loader", "sass-loader"]
+        })
+      },
+      {
+        test: /button\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: [
+            {
+              loader: "css-loader",
+              options: {
+                modules: true,
+                importLoaders: 2,
+                localIdentName: "[name]_[local]_[hash:base64]",
+                sourceMap: true,
+                minimize: true
+              }
+            }, "sass-loader"]
         })
       },
       {

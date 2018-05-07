@@ -6,9 +6,11 @@ export class SearchModeButton extends React.PureComponent {
     return (
       <Button
         onClick={this.props.onClick}
-        className={"btn-sm search-mode-btn " + (this.props.active
-          ? 'btn-red'
-          : 'btn-gray')}>{this.props.children}
+        size='sm'
+        color={this.props.active
+          ? 'red'
+          : 'gray'}
+        className="search-mode-btn">{this.props.children}
       </Button>
     );
   }
