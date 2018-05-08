@@ -1,0 +1,44 @@
+.btn {
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all .1s ease-in-out;
+
+  &:hover {
+    transform: translateY(-2px)
+  }
+
+  &:active {
+   transform: translateY(0px)
+  }
+
+  &.btn-white {
+    background-color: whitesmoke;
+    color: rgb(194, 2, 2);
+  }
+
+  &.btn-gray {
+    background-color: rgb(43, 43, 43);
+    color: whitesmoke;
+  }
+
+  &.btn-red {
+    background-color: rgb(255, 78, 78);
+    color: whitesmoke;
+  }
+
+  &.btn-sm {
+    font-size: 14px;
+    padding: 5px 15px;
+  }
+
+  &.btn-md {
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+
+  &.btn-lg {
+    font-size: 16px;
+    padding: 10px 60px;
+  }
+}

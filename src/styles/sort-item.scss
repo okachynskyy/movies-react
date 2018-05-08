@@ -1,0 +1,7 @@
+.sort-item {
+  cursor: pointer;
+  margin: 0 10px;
+  &.active{
+    color: red;
+  }
+}

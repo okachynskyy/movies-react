@@ -1,0 +1,25 @@
+.search-container {
+  padding-top: 30px;
+  padding-bottom: 40px;
+
+  .search-header {
+    margin-top: 50px;
+    margin-bottom: 25px;
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .search-controls {
+    margin-top: 25px;
+  }
+}
+
+.search-counter {
+  display: inline-block;
+}
+
+.sort-controls {
+  margin-left: auto;
+}

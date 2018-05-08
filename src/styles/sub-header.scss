@@ -1,0 +1,10 @@
+.sub-header {
+  height: 60px;
+  background-color: lightgray;
+  
+  .sub-header-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+}
