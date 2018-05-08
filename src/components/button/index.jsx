@@ -1,4 +1,5 @@
 import * as React from "react";
+import PropTypes from 'prop-types';
 import style from './button.scss';
 import classNames from 'classnames';
 
@@ -26,3 +27,9 @@ export class Button extends React.PureComponent {
     );
   }
 }
+
+Button.propTypes = {
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  color: PropTypes.oneOf(['white', 'gray', 'red']),
+  onClick: PropTypes.func
+};
