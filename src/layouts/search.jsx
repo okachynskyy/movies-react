@@ -8,6 +8,7 @@ import { SubHeader } from '../components/sub-header';
 import { SearchCounter } from '../components/search-counter';
 import { SortControls } from '../components/sort-controls';
 import { MovieList } from '../components/movie-list'
+import { ErrorBoundary } from '../components/error-boundary';
 import './search.scss';
 
 export class SearchLayout extends React.Component {
@@ -56,7 +57,9 @@ export class SearchLayout extends React.Component {
         </Header>
 
         <Content>
-          <MovieList movies={this.movies} />
+          <ErrorBoundary>
+            <MovieList movies={this.movies} />
+          </ErrorBoundary>
         </Content>
 
         <Footer />
