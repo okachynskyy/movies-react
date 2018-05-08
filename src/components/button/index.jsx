@@ -4,7 +4,6 @@ import style from './button.scss';
 import classNames from 'classnames';
 
 export class Button extends React.PureComponent {
-
   getClassNames = () => {
     const { size, color } = this.props;
 

@@ -1,11 +1,9 @@
 import * as React from "react";
 
-export class Content extends React.PureComponent {
-  render() {
-    return (
-      <main className="main-content">
-        {this.props.children}
-      </main>
-    );
-  }
+export function Content(props) {
+  return (
+    <main className="main-content">
+      {props.children}
+    </main>
+  );
 }
