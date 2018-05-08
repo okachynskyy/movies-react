@@ -1,5 +1,5 @@
 import * as React from "react";
-import { MovieBox } from './movie-box';
+import { MovieBox } from '../movie-box';
 
 export class MovieList extends React.Component {
   constructor() {

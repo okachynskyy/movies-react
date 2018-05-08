@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SortItem } from './sort-item';
+import { SortItem } from '../sort-item';
 
 export class SortControls extends React.Component {
   state = {

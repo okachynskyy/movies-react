@@ -1,5 +1,5 @@
 import * as React from "react";
-import { SiteName } from './site-name';
+import { SiteName } from '../site-name';
 
 export function Footer() {
   return (

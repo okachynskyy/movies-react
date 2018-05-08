@@ -1,7 +1,7 @@
 import * as React from "react";
-import { SiteName } from '../components/site-name';
-import { SearchField } from '../components/search-field';
-import { SearchControls } from '../components/search-controls';
+import { SiteName } from '../site-name';
+import { SearchField } from '../search-field';
+import { SearchControls } from '../search-controls';
 
 export class SearchBlock extends React.PureComponent {
   render() {

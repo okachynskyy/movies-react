@@ -1,5 +1,5 @@
 import * as React from "react";
-import { SearchModeButton } from './search-mode-button';
+import { SearchModeButton } from '../search-mode-button';
 
 export class SearchFilters extends React.Component {
   state = {
