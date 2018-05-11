@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SortItem renders with active class 1`] = `
+<span
+  className="sort-item active"
+  onClick={[Function]}
+/>
+`;
+
+exports[`SortItem renders without active class 1`] = `
+<span
+  className="sort-item"
+  onClick={[Function]}
+/>
+`;

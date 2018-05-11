@@ -1,11 +1,11 @@
 import React from 'react';
-import { SiteName } from './index';
+import { SubHeader } from './index';
 import renderer from 'react-test-renderer';
 
-describe('SiteName', () => {
+describe('SubHeader', () => {
   it('renders', () => {
     const tree = renderer
-      .create(<SiteName />)
+      .create(<SubHeader />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });

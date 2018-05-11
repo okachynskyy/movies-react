@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SortControls renders 1`] = `
+<div
+  className="sort-controls"
+>
+  Sort by
+  <span
+    className="sort-item active"
+    onClick={[Function]}
+  >
+    release date
+  </span>
+  <span
+    className="sort-item"
+    onClick={[Function]}
+  >
+    rating
+  </span>
+</div>
+`;

@@ -1,11 +1,11 @@
 import React from 'react';
-import { SiteName } from './index';
+import { SearchField } from './index';
 import renderer from 'react-test-renderer';
 
-describe('SiteName', () => {
+describe('SearchField', () => {
   it('renders', () => {
     const tree = renderer
-      .create(<SiteName />)
+      .create(<SearchField />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
