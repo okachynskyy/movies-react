@@ -1,8 +1,13 @@
 import React from 'react';
 import { SiteName } from './index';
-import { shallow } from 'enzyme';
+import renderer from 'react-test-renderer';
 
-it('renders', () => {
-  const wrapper = shallow(<SiteName />);
-  expect(wrapper.find('span').text()).toEqual('netflixroulette');
+describe('SiteName', () => {
+  it('renders', () => {
+
+    const tree = renderer
+      .create(<SiteName />)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
