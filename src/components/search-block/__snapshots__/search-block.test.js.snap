@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBlock renders 1`] = `
+<div
+  className="container search-container"
+>
+  <SiteName />
+  <h1
+    className="search-header"
+  >
+    Find your movie
+  </h1>
+  <SearchField />
+  <SearchControls />
+</div>
+`;

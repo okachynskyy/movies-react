@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchLayout renders 1`] = `
+Array [
+  <Header>
+    <SearchBlock />
+    <SubHeader>
+      <SearchCounter
+        count={4}
+      />
+      <SortControls />
+    </SubHeader>
+  </Header>,
+  <Content>
+    <ErrorBoundary>
+      <MovieList />
+    </ErrorBoundary>
+  </Content>,
+  <Footer />,
+]
+`;

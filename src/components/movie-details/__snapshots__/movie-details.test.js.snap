@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieDetails renders 1`] = `
+<div
+  className="movie-details container"
+>
+  <img
+    className="movie-image"
+    src="http://poster_path"
+  />
+  <div
+    className="movie-info"
+  >
+    <div
+      className="title"
+    >
+      title
+    </div>
+    <div
+      className="rating"
+    >
+      8
+    </div>
+    <div
+      className="tagline"
+    >
+      tagline
+    </div>
+    <div
+      className="year"
+    >
+      2007
+    </div>
+    <div
+      className="duration"
+    >
+      122
+      min
+    </div>
+    <div
+      className="overview"
+    >
+      overview
+    </div>
+  </div>
+</div>
+`;

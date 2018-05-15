@@ -1,11 +1,11 @@
 import * as React from "react";
-import {Header} from '../components/header';
-import {Content} from '../components/content';
-import {Footer} from '../components/footer';
+import { Header } from '../components/header';
+import { Content } from '../components/content';
+import { Footer } from '../components/footer';
 
-import {MovieDetails} from '../components/movie-details';
-import {SubHeader} from '../components/sub-header';
-import {MovieList} from '../components/movie-list'
+import { MovieDetails } from '../components/movie-details';
+import { SubHeader } from '../components/sub-header';
+import { MovieList } from '../components/movie-list'
 
 import './details.scss';
 
@@ -45,9 +45,9 @@ export class DetailsLayout extends React.Component {
       "release_date": "2007",
       "poster_path": "https://image.tmdb.org/t/p/w500/6o0UWX2naW7HK45PDNYmoMIk5qs.jpg",
       "overview": "Llewelyn Moss stumbles upon dead bodies, $2 million and a hoard of heroin in a T" +
-          "exas desert, but methodical killer Anton Chigurh comes looking for it, with loca" +
-          "l sheriff Ed Tom Bell hot on his trail. The roles of prey and predator blur as t" +
-          "he violent pursuit of money and justice collide.",
+        "exas desert, but methodical killer Anton Chigurh comes looking for it, with loca" +
+        "l sheriff Ed Tom Bell hot on his trail. The roles of prey and predator blur as t" +
+        "he violent pursuit of money and justice collide.",
       "genres": [
         "Crime", "Drama", "Thriller"
       ],
@@ -59,17 +59,17 @@ export class DetailsLayout extends React.Component {
       <React.Fragment>
 
         <Header>
-          <MovieDetails movie={this.movie}/>
+          <MovieDetails movie={this.movie} />
           <SubHeader>
             Films by {this.genre} genre
           </SubHeader>
         </Header>
 
         <Content>
-          <MovieList movies={this.movies}/>
+          <MovieList movies={this.movies} />
         </Content>
 
-        <Footer/>
+        <Footer />
 
       </React.Fragment>
     );

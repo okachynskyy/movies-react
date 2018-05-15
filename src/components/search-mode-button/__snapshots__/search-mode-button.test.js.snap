@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchModeButton renders gray button for non active mode 1`] = `
+<Button
+  className="search-mode-btn"
+  color="gray"
+  onClick={undefined}
+  size="sm"
+/>
+`;
+
+exports[`SearchModeButton renders red button for active mode 1`] = `
+<Button
+  className="search-mode-btn"
+  color="red"
+  onClick={undefined}
+  size="sm"
+/>
+`;
