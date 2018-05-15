@@ -26,6 +26,6 @@ describe('SortItem', () => {
     const wrapper = shallow(<SortItem onClick={callback} />);
     wrapper.find('span').simulate('click', { preventDefault() { } });
 
-    expect(callback.mock.calls.length).toEqual(1);
+    expect(callback).toHaveBeenCalled();
   });
 });

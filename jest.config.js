@@ -1,4 +1,8 @@
 module.exports = {
-  verbose: true,
-  setupTestFrameworkScriptFile: './setup-jest.js'
+  setupTestFrameworkScriptFile: './setup-jest.js',
+  collectCoverageFrom: [
+    "src/**/*.{js,jsx}",
+    "!**/node_modules/**",
+    "!**/vendor/**"
+  ]
 };
