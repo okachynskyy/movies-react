@@ -6,10 +6,8 @@ import './app.scss';
 
 export function App() {
   return (
-    <React.Fragment>
-      <ErrorBoundary>
-        <SearchLayout />
-      </ErrorBoundary>
-    </React.Fragment>
+    <ErrorBoundary>
+      <SearchLayout />
+    </ErrorBoundary>
   );
 }
