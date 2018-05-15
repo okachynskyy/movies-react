@@ -1,9 +1,1 @@
-import * as React from "react";
-
-export function SiteName() {
-  return (
-    <span className="site-name">
-      netflixroulette
-    </span>
-  );
-}
+export { SiteName } from './site-name';
