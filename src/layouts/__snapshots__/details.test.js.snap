@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DetailsLayout renders 1`] = `
+Array [
+  <Header>
+    <MovieDetails />
+    <SubHeader>
+      Films by 
+      Dramma
+       genre
+    </SubHeader>
+  </Header>,
+  <Content>
+    <MovieList />
+  </Content>,
+  <Footer />,
+]
+`;
