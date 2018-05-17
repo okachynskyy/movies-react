@@ -1,7 +1,9 @@
 import * as React from "react";
 import { Button } from '../button';
+import { connect } from 'react-redux';
+import { setSearchBy } from '../../actions';
 
-export class SearchModeButton extends React.PureComponent {
+class ModeButton extends React.PureComponent {
   render() {
     return (
       <Button
@@ -15,3 +17,24 @@ export class SearchModeButton extends React.PureComponent {
     );
   }
 }
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    active: ownProps.mode === state.searchBy
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onClick: () => {
+      dispatch(
+        setSearchBy(ownProps.mode)
+      );
+    }
+  };
+};
+
+export const SearchModeButton = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ModeButton);
