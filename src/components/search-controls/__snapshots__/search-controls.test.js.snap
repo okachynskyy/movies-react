@@ -4,7 +4,7 @@ exports[`SearchControls renders 1`] = `
 <div
   className="search-controls"
 >
-  <SearchFilters />
+  <SearchBy />
   <Button
     className="search-button"
     color="red"

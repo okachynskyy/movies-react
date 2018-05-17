@@ -1,14 +1,14 @@
 import React from 'react';
-import { SearchControls } from './index';
+import { SearchBy } from './index';
 import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
-jest.mock('../button/button');
-jest.mock('../search-by/search-by');
+jest.mock('../search-mode-button/search-mode-button');
 
-describe('SearchControls', () => {
+describe('SearchBy', () => {
   it('renders', () => {
     const tree = renderer
-      .create(<SearchControls />)
+      .create(<SearchBy />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });

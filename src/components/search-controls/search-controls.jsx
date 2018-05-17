@@ -1,12 +1,12 @@
 import * as React from "react";
-import { SearchFilters } from '../search-filters';
+import { SearchBy } from '../search-by';
 import { Button } from '../button';
 
 export class SearchControls extends React.PureComponent {
   render() {
     return (
       <div className="search-controls">
-        <SearchFilters />
+        <SearchBy />
         <Button size='lg' color='red' className="search-button">Search</Button>
       </div>
     );

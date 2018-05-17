@@ -1,23 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchFilters renders 1`] = `
+exports[`SearchBy renders 1`] = `
 <div
-  className="search-filters"
+  className="search-by"
 >
   <span
-    className="filters-caption"
+    className="caption"
   >
     Search by
   </span>
   <SearchModeButton
-    active={true}
-    onClick={[Function]}
+    mode="title"
   >
     Title
   </SearchModeButton>
   <SearchModeButton
-    active={false}
-    onClick={[Function]}
+    mode="genre"
   >
     Genre
   </SearchModeButton>
