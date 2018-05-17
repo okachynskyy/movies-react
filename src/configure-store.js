@@ -1,14 +1,16 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import throttle from 'lodash/throttle';
 import reducers from './reducers';
 import { loadState, saveState } from './local-storage';
+import promiseMiddleware from 'redux-promise';
 
 const configureStore = () => {
   const persistedState = loadState();
 
   const store = createStore(
     reducers,
-    persistedState
+    persistedState,
+    applyMiddleware(promiseMiddleware)
   );
 
   store.subscribe(throttle(() => {

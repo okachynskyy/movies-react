@@ -11,39 +11,9 @@ import { MovieList } from '../components/movie-list'
 import { ErrorBoundary } from '../components/error-boundary';
 import './search.scss';
 
-export class SearchLayout extends React.Component {
-  constructor() {
-    super();
-    this.movies = [
-      {
-        id: '1',
-        poster_path: 'https://image.tmdb.org/t/p/w500/6o0UWX2naW7HK45PDNYmoMIk5qs.jpg',
-        title: 'No Country for Old Men',
-        release_date: '2007',
-        genres: ['Crime', 'Drama', 'Thriller']
-      }, {
-        id: '2',
-        poster_path: 'https://image.tmdb.org/t/p/w500/6o0UWX2naW7HK45PDNYmoMIk5qs.jpg',
-        title: 'No Country for Old Men',
-        release_date: '2007',
-        genres: ['Crime', 'Drama', 'Thriller']
-      }, {
-        id: '3',
-        poster_path: 'https://image.tmdb.org/t/p/w500/6o0UWX2naW7HK45PDNYmoMIk5qs.jpg',
-        title: 'No Country for Old Men',
-        release_date: '2007',
-        genres: ['Crime', 'Drama', 'Thriller']
-      }, {
-        id: '4',
-        poster_path: 'https://image.tmdb.org/t/p/w500/6o0UWX2naW7HK45PDNYmoMIk5qs.jpg',
-        title: 'No Country for Old Men',
-        release_date: '2007',
-        genres: ['Crime', 'Drama', 'Thriller']
-      }
-    ];
+import { connect } from 'react-redux';
 
-    // this.movies = [];
-  }
+export class Layout extends React.Component {
   render() {
     return (
       <React.Fragment>
@@ -58,7 +28,7 @@ export class SearchLayout extends React.Component {
 
         <Content>
           <ErrorBoundary>
-            <MovieList movies={this.movies} />
+            <MovieList movies={this.props.movies} />
           </ErrorBoundary>
         </Content>
 
@@ -68,3 +38,14 @@ export class SearchLayout extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    movies: state.movies
+  };
+};
+
+export const SearchLayout = connect(
+  mapStateToProps,
+  null
+)(Layout);

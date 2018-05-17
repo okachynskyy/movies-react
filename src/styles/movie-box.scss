@@ -1,9 +1,10 @@
 .movie-box {
   display: inline-block;
   margin: 30px 30px;
+  vertical-align: top;
 
   .movie-image {
-    width: 260px;
+    height: 390px;
     display: block;
   }
 
