@@ -1,6 +1,8 @@
 import * as React from "react";
+import { connect } from 'react-redux';
+import { setSortBy } from '../../actions';
 
-export class SortItem extends React.PureComponent {
+export class SortItemComponent extends React.PureComponent {
   render() {
     return (
       <span
@@ -13,3 +15,24 @@ export class SortItem extends React.PureComponent {
     );
   }
 }
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    active: ownProps.sortBy === state.sortBy
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onClick: () => {
+      dispatch(
+        setSortBy(ownProps.sortBy)
+      );
+    }
+  };
+};
+
+export const SortItem = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SortItemComponent);
