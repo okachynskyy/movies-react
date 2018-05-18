@@ -1,6 +1,7 @@
 import React from 'react';
 import { SearchLayout } from './search';
 import renderer from 'react-test-renderer';
+import configureStore from 'redux-mock-store'
 
 jest.mock('./search.scss', () => ({}));
 jest.mock('../components/header/header');
@@ -15,8 +16,10 @@ jest.mock('../components/error-boundary/error-boundary');
 
 describe('SearchLayout', () => {
   it('renders', () => {
+    const store = configureStore()({ movies: [{ id: '1' }] });
+
     const tree = renderer
-      .create(<SearchLayout />)
+      .create(<SearchLayout store={store} />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });

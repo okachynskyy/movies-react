@@ -1,20 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SearchField renders 1`] = `
-<div
-  className="search-field"
+<form
+  className="search-form"
+  onSubmit={[Function]}
 >
   <input
     className="search-field"
+    onChange={[Function]}
+    placeholder="Enter search term..."
     type="search"
+    value="searchTerm"
   />
   <button
     className="search-field-button"
-    type="submit"
+    type="button"
   >
     <i>
       ↩
     </i>
   </button>
-</div>
+</form>
 `;

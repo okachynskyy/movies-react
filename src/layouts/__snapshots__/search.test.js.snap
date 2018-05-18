@@ -6,7 +6,7 @@ Array [
     <SearchBlock />
     <SubHeader>
       <SearchCounter
-        count={4}
+        count={1}
       />
       <SortControls />
     </SubHeader>
