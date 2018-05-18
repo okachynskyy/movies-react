@@ -1,11 +1,12 @@
-import * as React from "react";
+import * as React from 'react';
 import { connect } from 'react-redux';
-import { searchMovies } from "../../actions";
+import { bindActionCreators } from 'redux';
+import { searchMovies, setSearchTerm } from '../../actions';
 
 export class SearchFieldComponent extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = { term: "" };
+    this.state = { term: this.props.term };
 
     this.onInputChange = this.onInputChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -13,6 +14,7 @@ export class SearchFieldComponent extends React.PureComponent {
 
   onInputChange(event) {
     this.setState({ term: event.target.value });
+    this.props.setSearchTerm(event.target.value);
   }
 
   onFormSubmit(event) {
@@ -22,30 +24,38 @@ export class SearchFieldComponent extends React.PureComponent {
 
   render() {
     return (
-      <form className="search-field" onSubmit={this.onFormSubmit}>
+      <form className="search-form" onSubmit={this.onFormSubmit}>
         <input
-          className='search-field'
+          className="search-field"
           type="search"
           value={this.state.term}
           onChange={this.onInputChange}
+          placeholder="Enter search term..."
         />
-        <button className='search-field-button' type="submit"><i>&#8617;</i></button>
+        <button className="search-field-button" type="button"><i>&#8617;</i></button>
       </form>
     );
   }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    searchMovies: (term) => {
-      dispatch(
-        searchMovies({ search: term, searchBy: 'title' })
-      );
-    }
-  };
-};
+const mapStateToProps = (state, ownProps) => ({
+  term: state.searchTerm
+});
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  searchMovies: (term) => {
+    dispatch(
+      searchMovies({ search: term, searchBy: 'title' })
+    );
+  },
+  setSearchTerm: term => {
+    dispatch(
+      setSearchTerm(term)
+    );
+  }
+});
 
 export const SearchField = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(SearchFieldComponent);
