@@ -21,7 +21,7 @@ export class Layout extends React.Component {
         <Header>
           <SearchBlock />
           <SubHeader>
-            <SearchCounter count={4} />
+            <SearchCounter count={this.props.movies.length} />
             <SortControls />
           </SubHeader>
         </Header>
