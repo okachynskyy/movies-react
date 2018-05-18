@@ -21,7 +21,9 @@ input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-  outline: none;
+  outline-style: solid;
+  outline-width: thin;
+  outline-color: rgb(165, 165, 165);
 }
 
 body {

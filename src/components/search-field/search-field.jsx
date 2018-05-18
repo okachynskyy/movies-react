@@ -32,7 +32,7 @@ export class SearchFieldComponent extends React.PureComponent {
           onChange={this.onInputChange}
           placeholder="Enter search term..."
         />
-        <button className="search-field-button" type="button"><i>&#8617;</i></button>
+        <span className="search-field-icon">&#8617;</span>
       </form>
     );
   }
