@@ -1,14 +1,10 @@
 import { combineReducers } from 'redux';
-import searchBy from './search-by';
-import movies from './search-movies';
-import searchTerm from './search-term';
-import sortBy from './sort-by';
+import searchForm from './search-form';
+import movies from './movies';
 
 const rootReducer = combineReducers({
-  searchBy,
-  movies,
-  searchTerm,
-  sortBy
+  searchForm,
+  movies
 });
 
 export default rootReducer;

@@ -18,7 +18,7 @@ export class SortItemComponent extends React.PureComponent {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    active: ownProps.sortBy === state.sortBy
+    active: ownProps.sortBy === state.searchForm.sortBy
   };
 };
 

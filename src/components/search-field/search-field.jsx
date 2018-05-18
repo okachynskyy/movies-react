@@ -39,7 +39,7 @@ export class SearchFieldComponent extends React.PureComponent {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  term: state.searchTerm
+  term: state.searchForm.term
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

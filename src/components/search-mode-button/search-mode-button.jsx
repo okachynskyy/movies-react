@@ -20,7 +20,7 @@ class ModeButton extends React.PureComponent {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    active: ownProps.mode === state.searchBy
+    active: ownProps.mode === state.searchForm.searchBy
   };
 };
 
