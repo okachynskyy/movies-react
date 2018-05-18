@@ -22,7 +22,11 @@ export class Button extends React.PureComponent {
       <button
         onClick={this.props.onClick}
         type="button"
-        className={this.getClassNames()}>{this.props.children}</button>
+        className={this.getClassNames()}
+        type={this.props.type || 'button'}
+      >
+        {this.props.children}
+      </button>
     );
   }
 }

@@ -7,7 +7,7 @@ export class SearchControls extends React.PureComponent {
     return (
       <div className="search-controls">
         <SearchBy />
-        <Button size='lg' color='red' className="search-button">Search</Button>
+        <Button size="lg" color="red" className="search-button">Search</Button>
       </div>
     );
   }
