@@ -1,9 +1,10 @@
 import { SET_SEARCH_TERM, SET_SEARCH_BY, SET_SORT_BY } from "../actions";
+import { searchByTitle, sortByReleaseDate } from '../constants';
 
 const defaultState = {
   term: '',
-  searchBy: 'TITLE',
-  sortBy: 'RELEASE_DATE'
+  searchBy: searchByTitle,
+  sortBy: sortByReleaseDate
 };
 
 export default function (state = defaultState, action) {

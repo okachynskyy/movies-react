@@ -28,6 +28,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(
         setSortBy(ownProps.sortBy)
       );
+      ownProps.onClick(ownProps.sortBy);
     }
   };
 };

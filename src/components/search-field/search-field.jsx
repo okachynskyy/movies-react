@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { searchMovies, setSearchTerm } from '../../actions';
 
 export class SearchFieldComponent extends React.PureComponent {
@@ -19,7 +18,7 @@ export class SearchFieldComponent extends React.PureComponent {
 
   onFormSubmit(event) {
     event.preventDefault();
-    this.props.searchMovies(this.state.term);
+    this.props.onSubmit();
   }
 
   render() {
@@ -43,11 +42,6 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  searchMovies: (term) => {
-    dispatch(
-      searchMovies({ search: term, searchBy: 'title' })
-    );
-  },
   setSearchTerm: term => {
     dispatch(
       setSearchTerm(term)
