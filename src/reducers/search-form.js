@@ -1,4 +1,4 @@
-import { SET_SEARCH_TERM, SET_SEARCH_BY, SET_SORT_BY } from "../actions";
+import { SET_SEARCH_TERM, SET_SEARCH_BY, SET_SORT_BY } from '../actions';
 import { searchByTitle, sortByReleaseDate } from '../constants';
 
 const defaultState = {
