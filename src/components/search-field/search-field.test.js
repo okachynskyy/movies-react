@@ -7,10 +7,16 @@ import { shallow } from 'enzyme';
 import { setSearchTerm } from '../../actions';
 
 jest.mock('../../actions', () => ({
-  setSearchTerm: jest.fn().mockReturnValue({ type: '', payload: {} })
+  setSearchTerm: jest.fn()
 }));
 
 describe('SearchField', () => {
+  const returnValue = { type: '', payload: {} };
+
+  beforeAll(() => {
+    setSearchTerm.mockReturnValue(returnValue);
+  });
+
   it('renders', () => {
     const store = configureStore()({ searchForm: { term: 'searchTerm' } });
     const tree = renderer
@@ -20,22 +26,24 @@ describe('SearchField', () => {
   });
 
   it('handle input change', () => {
-    const setSearchTerm = () => { };
+    const setSearchTerm = jest.fn();
     const wrapper = shallow(<SearchFieldComponent setSearchTerm={setSearchTerm} />);
     const event = { target: { name: 'search-term', value: 'new-term' } };
     wrapper.find('.search-field').simulate('change', event);
 
     expect(wrapper.instance().state.term).toEqual('new-term');
+    expect(setSearchTerm).toHaveBeenCalledWith('new-term');
   });
 
   it('dispatch event on input change', () => {
     const store = configureStore()({ searchForm: { term: 'searchTerm' } });
+    store.dispatch = jest.fn();
     const wrapper = shallow(<SearchField store={store} />);
-    const event = { target: { name: 'search-term', value: 'new-term' } };
 
-    wrapper.first().dive().instance().onInputChange(event);
+    wrapper.props().setSearchTerm('new-term');
 
     expect(setSearchTerm).toHaveBeenCalledWith('new-term');
+    expect(store.dispatch).toHaveBeenCalledWith(returnValue);
   });
 
   it('handle form submit', () => {
