@@ -6,12 +6,14 @@ exports[`SortControls renders 1`] = `
 >
   Sort by
   <SortItem
-    sortBy="RELEASE_DATE"
+    onClick={[Function]}
+    sortBy="release_date"
   >
     release date
   </SortItem>
   <SortItem
-    sortBy="RATING"
+    onClick={[Function]}
+    sortBy="vote_average"
   >
     rating
   </SortItem>

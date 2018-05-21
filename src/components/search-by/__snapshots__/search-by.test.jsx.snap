@@ -15,7 +15,7 @@ exports[`SearchBy renders 1`] = `
     Title
   </SearchModeButton>
   <SearchModeButton
-    mode="genre"
+    mode="genres"
   >
     Genre
   </SearchModeButton>

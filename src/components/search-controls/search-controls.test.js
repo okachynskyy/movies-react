@@ -7,8 +7,9 @@ jest.mock('../search-by/search-by');
 
 describe('SearchControls', () => {
   it('renders', () => {
+    const callback = jest.fn();
     const tree = renderer
-      .create(<SearchControls />)
+      .create(<SearchControls onSearchClick={callback} />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });

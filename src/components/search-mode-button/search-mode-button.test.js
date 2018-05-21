@@ -6,7 +6,7 @@ jest.mock('../button/button');
 
 describe('SearchModeButton', () => {
   it('renders red button if mode equal to searchBy in store', () => {
-    const store = configureStore()({ searchBy: 'title' });
+    const store = configureStore()({ searchForm: { searchBy: 'title' } });
     const tree = renderer
       .create(
         <SearchModeButton mode='title' store={store}>Title </SearchModeButton>
@@ -16,7 +16,7 @@ describe('SearchModeButton', () => {
   });
 
   it('renders gray button if mode not equal to searchBy in store', () => {
-    const store = configureStore()({ searchBy: 'title' });
+    const store = configureStore()({ searchForm: { searchBy: 'title' } });
     const tree = renderer
       .create(
         <SearchModeButton mode='other' store={store}>Title </SearchModeButton>

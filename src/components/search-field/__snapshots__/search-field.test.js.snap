@@ -12,13 +12,10 @@ exports[`SearchField renders 1`] = `
     type="search"
     value="searchTerm"
   />
-  <button
-    className="search-field-button"
-    type="button"
+  <span
+    className="search-field-icon"
   >
-    <i>
-      ↩
-    </i>
-  </button>
+    ↩
+  </span>
 </form>
 `;

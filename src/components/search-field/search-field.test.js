@@ -5,7 +5,7 @@ import configureStore from 'redux-mock-store'
 
 describe('SearchField', () => {
   it('renders', () => {
-    const store = configureStore()({ searchTerm: 'searchTerm' });
+    const store = configureStore()({ searchForm: { term: 'searchTerm' } });
     const tree = renderer
       .create(<SearchField store={store} />)
       .toJSON();
