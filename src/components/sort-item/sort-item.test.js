@@ -23,12 +23,12 @@ describe('SortItem', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it.skip('should run callback on click', () => {
+  it('should run callback on click', () => {
     const store = configureStore()({ searchForm: { sortBy: 'RATING' } });
     const callback = jest.fn();
 
     const wrapper = shallow(<SortItem sortBy='RATING' onClick={callback} store={store} />);
-    wrapper.find('.sort-item').simulate('click', { preventDefault() { } });
+    wrapper.first().dive().find('.sort-item').simulate('click', { preventDefault() { } });
 
     expect(callback).toHaveBeenCalled();
   });

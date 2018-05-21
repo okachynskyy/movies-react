@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { searchMovies, setSearchTerm } from '../../actions';
+import { setSearchTerm } from '../../actions';
 
 export class SearchFieldComponent extends React.PureComponent {
   constructor(props) {
