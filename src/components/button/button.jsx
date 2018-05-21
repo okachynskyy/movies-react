@@ -1,10 +1,10 @@
-import * as React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
 import style from './button.scss';
 import classNames from 'classnames';
 
 export class Button extends React.PureComponent {
-  getClassNames = () => {
+  getClassNames() {
     const { size, color } = this.props;
 
     return classNames(style.btn, {

@@ -7,6 +7,7 @@ exports[`SearchField renders 1`] = `
 >
   <input
     className="search-field"
+    name="search-term"
     onChange={[Function]}
     placeholder="Enter search term..."
     type="search"

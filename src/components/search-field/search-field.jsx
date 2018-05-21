@@ -25,6 +25,7 @@ export class SearchFieldComponent extends React.PureComponent {
     return (
       <form className="search-form" onSubmit={this.onFormSubmit}>
         <input
+          name="search-term"
           className="search-field"
           type="search"
           value={this.state.term}
