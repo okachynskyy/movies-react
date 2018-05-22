@@ -1,10 +1,10 @@
-import * as React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
 import style from './button.scss';
 import classNames from 'classnames';
 
 export class Button extends React.PureComponent {
-  getClassNames = () => {
+  getClassNames() {
     const { size, color } = this.props;
 
     return classNames(style.btn, {
@@ -22,7 +22,11 @@ export class Button extends React.PureComponent {
       <button
         onClick={this.props.onClick}
         type="button"
-        className={this.getClassNames()}>{this.props.children}</button>
+        className={this.getClassNames()}
+        type={this.props.type || 'button'}
+      >
+        {this.props.children}
+      </button>
     );
   }
 }

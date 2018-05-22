@@ -39,76 +39,20 @@ exports[`MovieList renders movie list 1`] = `
   <div
     className="container"
   >
-    <div
-      className="movie-box"
-    >
-      <img
-        className="movie-image"
-        src="https://image.tmdb.org/t/p/w500/6o0UWX2naW7HK45PDNYmoMIk5qs.jpg"
-      />
-      <div
-        className="movie-info"
-      >
-        <div
-          className="title"
-        >
-          No Country for Old Men
-        </div>
-        <div
-          className="year"
-        >
-          2007
-        </div>
-        <div
-          className="genres"
-        >
-          <span>
-            Crime
-          </span>
-          <span>
-            Drama
-          </span>
-          <span>
-            Thriller
-          </span>
-        </div>
-      </div>
-    </div>
-    <div
-      className="movie-box"
-    >
-      <img
-        className="movie-image"
-        src="https://image.tmdb.org/t/p/w500/6o0UWX2naW7HK45PDNYmoMIk5qs.jpg"
-      />
-      <div
-        className="movie-info"
-      >
-        <div
-          className="title"
-        >
-          No Country for Old Men
-        </div>
-        <div
-          className="year"
-        >
-          2007
-        </div>
-        <div
-          className="genres"
-        >
-          <span>
-            Crime
-          </span>
-          <span>
-            Drama
-          </span>
-          <span>
-            Thriller
-          </span>
-        </div>
-      </div>
-    </div>
+    <MovieBox
+      movie={
+        Object {
+          "id": "1",
+        }
+      }
+    />
+    <MovieBox
+      movie={
+        Object {
+          "id": "2",
+        }
+      }
+    />
   </div>
 </div>
 `;

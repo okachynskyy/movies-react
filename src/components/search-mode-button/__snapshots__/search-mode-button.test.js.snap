@@ -1,19 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchModeButton renders gray button for non active mode 1`] = `
+exports[`SearchModeButton renders gray button if mode not equal to searchBy in store 1`] = `
 <Button
   className="search-mode-btn"
   color="gray"
-  onClick={undefined}
+  onClick={[Function]}
   size="sm"
-/>
+>
+  Title 
+</Button>
 `;
 
-exports[`SearchModeButton renders red button for active mode 1`] = `
+exports[`SearchModeButton renders red button if mode equal to searchBy in store 1`] = `
 <Button
   className="search-mode-btn"
   color="red"
-  onClick={undefined}
+  onClick={[Function]}
   size="sm"
-/>
+>
+  Title 
+</Button>
 `;

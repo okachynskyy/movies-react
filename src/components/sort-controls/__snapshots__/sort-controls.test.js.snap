@@ -5,17 +5,17 @@ exports[`SortControls renders 1`] = `
   className="sort-controls"
 >
   Sort by
-  <span
-    className="sort-item active"
+  <SortItem
     onClick={[Function]}
+    sortBy="release_date"
   >
     release date
-  </span>
-  <span
-    className="sort-item"
+  </SortItem>
+  <SortItem
     onClick={[Function]}
+    sortBy="vote_average"
   >
     rating
-  </span>
+  </SortItem>
 </div>
 `;

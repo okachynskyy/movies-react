@@ -1,13 +1,21 @@
 import * as React from "react";
-import { SearchFilters } from '../search-filters';
+import { SearchBy } from '../search-by';
 import { Button } from '../button';
+
 
 export class SearchControls extends React.PureComponent {
   render() {
     return (
       <div className="search-controls">
-        <SearchFilters />
-        <Button size='lg' color='red' className="search-button">Search</Button>
+        <SearchBy />
+        <Button
+          className="search-button"
+          size="lg"
+          color="red"
+          onClick={this.props.onSearchClick}
+        >
+          Search
+          </Button>
       </div>
     );
   }

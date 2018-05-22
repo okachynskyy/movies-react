@@ -3,7 +3,7 @@
 @import "./styles/header";
 @import "./styles/site-name";
 @import "./styles/search-field";
-@import "./styles/search-filters";
+@import "./styles/search-by";
 @import "./styles/search-controls";
 @import "./styles/sub-header";
 @import "./styles/movie-list";
@@ -21,7 +21,9 @@ input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-  outline: none;
+  outline-style: solid;
+  outline-width: thin;
+  outline-color: rgb(165, 165, 165);
 }
 
 body {

@@ -1,31 +1,42 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 import { SortItem } from '../sort-item';
+import { sortByReleaseDate, sortByRating } from '../../constants';
+import { searchMovies } from '../../actions';
 
-export class SortControls extends React.Component {
-  state = {
-    isReleaseDateEnabled: true,
-    isRatingEnabled: false
-  };
-
-  handleReleaseDateClick = () => {
-    this.setState({ isReleaseDateEnabled: true, isRatingEnabled: false });
+export class SortControlsComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSortItemClick = this.handleSortItemClick.bind(this);
   }
 
-  handleRatingClick = () => {
-    this.setState({ isReleaseDateEnabled: false, isRatingEnabled: true });
+  handleSortItemClick(sortBy) {
+    this.props.searchMovies(this.props.searchForm, sortBy);
   }
-
   render() {
     return (
       <div className="sort-controls">
         Sort by
-        <SortItem
-          active={this.state.isReleaseDateEnabled}
-          onClick={this.handleReleaseDateClick}>release date</SortItem>
-        <SortItem
-          active={this.state.isRatingEnabled}
-          onClick={this.handleRatingClick}>rating</SortItem>
-      </div>
+        <SortItem onClick={this.handleSortItemClick} sortBy={sortByReleaseDate}>release date</SortItem>
+        <SortItem onClick={this.handleSortItemClick} sortBy={sortByRating}>rating</SortItem>
+      </div >
     );
   }
 }
+
+const mapStateToProps = (state, ownProps) => ({
+  searchForm: state.searchForm
+});
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  searchMovies: (searchForm, sortBy) => {
+    dispatch(
+      searchMovies({ ...searchForm, sortBy })
+    );
+  }
+});
+
+export const SortControls = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SortControlsComponent);

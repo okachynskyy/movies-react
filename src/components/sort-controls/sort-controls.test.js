@@ -2,45 +2,18 @@ import React from 'react';
 import { SortControls } from './index';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
+import configureStore from 'redux-mock-store'
+
+jest.mock('../sort-item/sort-item');
 
 describe('SortControls', () => {
   it('renders', () => {
+    const store = configureStore()({ searchForm: {} });
+
     const callback = () => { };
     const tree = renderer
-      .create(<SortControls />)
+      .create(<SortControls store={store} />)
       .toJSON();
     expect(tree).toMatchSnapshot();
-  });
-
-  it('should have default state', () => {
-    const wrapper = shallow(<SortControls />);
-
-    expect(wrapper.instance().state.isReleaseDateEnabled).toEqual(true);
-    expect(wrapper.instance().state.isRatingEnabled).toEqual(false);
-  });
-
-  it('should handle Rating Click', () => {
-    const wrapper = shallow(<SortControls />);
-
-    expect(wrapper.instance().state.isReleaseDateEnabled).toEqual(true);
-    expect(wrapper.instance().state.isRatingEnabled).toEqual(false);
-
-    wrapper.instance().handleRatingClick();
-
-    expect(wrapper.instance().state.isReleaseDateEnabled).toEqual(false);
-    expect(wrapper.instance().state.isRatingEnabled).toEqual(true);
-  });
-
-  it('should handle ReleaseDate Click after Rating Click', () => {
-    const wrapper = shallow(<SortControls />);
-    wrapper.instance().handleRatingClick();
-
-    expect(wrapper.instance().state.isReleaseDateEnabled).toEqual(false);
-    expect(wrapper.instance().state.isRatingEnabled).toEqual(true);
-
-    wrapper.instance().handleReleaseDateClick();
-
-    expect(wrapper.instance().state.isReleaseDateEnabled).toEqual(true);
-    expect(wrapper.instance().state.isRatingEnabled).toEqual(false);
   });
 });
