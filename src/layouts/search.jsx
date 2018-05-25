@@ -20,11 +20,11 @@ export class Layout extends React.Component {
 
         <Header>
           <SearchBlock />
-          <SubHeader>
-            <SearchCounter count={this.props.movies.length} />
-            <SortControls />
-          </SubHeader>
         </Header>
+        <SubHeader>
+          <SearchCounter count={this.props.movies.length} />
+          <SortControls />
+        </SubHeader>
 
         <Content>
           <ErrorBoundary>
