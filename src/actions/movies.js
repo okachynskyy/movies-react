@@ -4,19 +4,24 @@ import { API_URL } from '../../configs';
 
 export const SEARCH_MOVIES = 'SEARCH_MOVIES';
 
-export function searchMovies(searchForm) {
+export const searchMovies = (searchForm) => (dispatch, getState) => {
   const params = {
-    search: searchForm.term,
-    searchBy: searchForm.searchBy,
-    sortBy: searchForm.sortBy,
+    search: getState().searchForm.term,
+    searchBy: getState().searchForm.searchBy,
+    sortBy: getState().searchForm.sortBy,
     sortOrder: 'desc'
   };
 
   const url = `${API_URL}/movies?${queryString.stringify(params)}`;
-  const request = axios.get(url);
 
-  return {
-    type: SEARCH_MOVIES,
-    payload: request
-  };
-};
+  return axios.get(url)
+    .then(res => {
+      return res.data.data;
+    })
+    .then(movies => {
+      dispatch({
+        type: SEARCH_MOVIES,
+        movies
+      });
+    })
+}

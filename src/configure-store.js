@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import throttle from 'lodash/throttle';
 import reducers from './reducers';
 import { loadState, saveState } from './local-storage';
-import promiseMiddleware from 'redux-promise';
+import ReduxThunk from 'redux-thunk'
 
 const configureStore = () => {
   const persistedState = loadState();
@@ -13,7 +13,7 @@ const configureStore = () => {
     reducers,
     persistedState,
     composeEnhancers(
-      applyMiddleware(promiseMiddleware)
+      applyMiddleware(ReduxThunk)
     )
   );
 

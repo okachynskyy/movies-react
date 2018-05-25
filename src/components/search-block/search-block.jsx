@@ -11,7 +11,7 @@ export class SearchBlockComponent extends React.PureComponent {
   }
 
   handleSearch() {
-    this.props.searchMovies(this.props.searchForm);
+    this.props.searchMovies();
   }
 
   render() {
@@ -25,10 +25,6 @@ export class SearchBlockComponent extends React.PureComponent {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  searchForm: state.searchForm
-});
-
 const mapDispatchToProps = (dispatch, ownProps) => ({
   searchMovies: (searchForm) => {
     dispatch(
@@ -38,6 +34,6 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 });
 
 export const SearchBlock = connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(SearchBlockComponent);
