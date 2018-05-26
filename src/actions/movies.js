@@ -4,7 +4,7 @@ import { API_URL } from '../../configs';
 
 export const SEARCH_MOVIES = 'SEARCH_MOVIES';
 
-export const searchMovies = (searchForm) => (dispatch, getState) => {
+export const searchMovies = () => (dispatch, getState) => {
   const params = {
     search: getState().searchForm.term,
     searchBy: getState().searchForm.searchBy,
