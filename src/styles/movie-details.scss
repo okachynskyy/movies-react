@@ -2,14 +2,59 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  font-size: 17px;
 
   .movie-image {
-    height: 500px;
+    height: 450px;
+    margin-bottom: 40px;
   }
 
   .movie-info {
     color: white;
-    margin-left: 45px;
+    margin-left: 40px;
     margin-top: 30px;
+
+    .title {
+      color: rgb(194, 2, 2);
+      font-size: 30px;
+      font-weight: bold;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .rating {
+      border: 1.4px solid gray;
+      border-radius: 50%;
+      display: inline-block;
+      font-size: 19px;
+      line-height: 21px;
+      margin-left: 15px;
+      padding: 9px 0px;
+      width: 41px;
+      height: 41px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .tagline {
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+
+    .year {
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    .duration {
+      font-weight: bold;
+      display: inline-block;
+      margin-left: 25px;
+    }
+
+    .overview {
+      margin-top: 20px;
+      line-height: 1.5;
+    }
   }
 }

@@ -1,6 +1,11 @@
 import * as React from "react";
 
 export class MovieDetails extends React.PureComponent {
+  processDate(fullDate) {
+    const dateObj = new Date(fullDate);
+    return dateObj.getFullYear();
+  }
+
   render() {
     return (
       <div className="movie-details container">
@@ -9,9 +14,11 @@ export class MovieDetails extends React.PureComponent {
           <div className="title">{this.props.movie.title}</div>
           <div className="rating">{this.props.movie.vote_average}</div>
           <div className="tagline">{this.props.movie.tagline}</div>
-          <div className="year">{this.props.movie.release_date}</div>
-          <div className="duration">{this.props.movie.runtime}
-            min</div>
+          <div className="year">{this.processDate(this.props.movie.release_date)}</div>
+          <div className="duration">
+            {this.props.movie.runtime}
+            {this.props.movie.runtime ? " min" : ""}
+          </div>
           <div className="overview">{this.props.movie.overview}</div>
         </div>
       </div>
