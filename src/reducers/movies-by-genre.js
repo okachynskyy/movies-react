@@ -1,22 +1,22 @@
 import {
-  GET_MOVIE_DETAILS_LOADING,
-  GET_MOVIE_DETAILS_COMPLETE,
-  GET_MOVIE_DETAILS_FAILURE
+  GET_MOVIES_BY_GENRE_LOADING,
+  GET_MOVIES_BY_GENRE_COMPLETED,
+  GET_MOVIES_BY_GENRE_FAILURE
 } from '../actions';
 
 const defaultState = {
   isLoading: false,
-  data: {},
+  data: [],
   error: {}
 };
 
 export default function (state = defaultState, action) {
   switch (action.type) {
-    case GET_MOVIE_DETAILS_LOADING:
+    case GET_MOVIES_BY_GENRE_LOADING:
       return { ...state, isLoading: true };
-    case GET_MOVIE_DETAILS_COMPLETE:
-      return { ...state, data: action.movieDetails, isLoading: false };
-    case GET_MOVIE_DETAILS_FAILURE:
+    case GET_MOVIES_BY_GENRE_COMPLETED:
+      return { ...state, data: action.payload, isLoading: false };
+    case GET_MOVIES_BY_GENRE_FAILURE:
       return { ...state, error: action.error, isLoading: false };
   }
   return state;

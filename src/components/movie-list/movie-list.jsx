@@ -1,14 +1,16 @@
 import * as React from "react";
-import { MovieBox } from '../movie-box';
+import { MovieBox, MovieBoxPlaceholder } from '../movie-box';
 
 export class MovieList extends React.Component {
-  constructor() {
-    super();
-  }
-
   renderMovies() {
     return this.props.movies.map(movie => (
       <MovieBox movie={movie} key={movie.id} />
+    ));
+  }
+
+  renderMoviesPlaceholder() {
+    return Array.from({ length: this.props.movies.length || 10 }).map((value, index) => (
+      <MovieBoxPlaceholder key={index} />
     ));
   }
 
@@ -24,7 +26,10 @@ export class MovieList extends React.Component {
     return (
       <div className="movie-list">
         <div className="container">
-          {this.props.movies.length ? this.renderMovies() : this.renderMessage()}
+          {
+            this.props.isLoading ? this.renderMoviesPlaceholder() :
+              this.props.movies.length ? this.renderMovies() : this.renderMessage()
+          }
         </div>
       </div>
     );

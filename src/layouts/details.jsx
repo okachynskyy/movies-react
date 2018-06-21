@@ -12,7 +12,7 @@ import { Button } from '../components/button';
 
 import { MovieDetails } from '../components/movie-details';
 import { SubHeader } from '../components/sub-header';
-import { MovieList } from '../components/movie-list'
+import { MoviesByGenre } from '../components/movies-by-genre';
 
 import { getMovieDetails } from '../actions';
 import './details.scss';
@@ -28,14 +28,18 @@ export class Details extends React.Component {
     this.props.getMovieDetails(this.props.match.params.id);
   }
 
-  constructor() {
-    super();
-    this.returnToSearh = this.returnToSearh.bind(this);
-    this.movies = [];
-    this.movie = {};
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.match.params.id !== this.props.match.params.id) {
+      this.props.getMovieDetails(nextProps.match.params.id);
+    }
   }
 
-  returnToSearh() {
+  constructor() {
+    super(...arguments);
+    this.returnToSearch = this.returnToSearch.bind(this);
+  }
+
+  returnToSearch() {
     this.props.history.push('/');
   }
 
@@ -48,17 +52,22 @@ export class Details extends React.Component {
             size="sm"
             color="white"
             className="top-search-button"
-            onClick={this.returnToSearh}>
+            onClick={this.returnToSearch}>
             Search
           </Button>
-          <MovieDetails movie={this.props.movie} />
+
+          <MovieDetails movie={this.props.movieDetails.data} isLoading={this.props.movieDetails.isLoading} />
+
         </Header>
         <SubHeader>
-          Films by {this.props.movie.genres[0]} genre
+          {this.props.movieDetails.data.genres && !this.props.movieDetails.isLoading ?
+            <span>Films by {this.props.movieDetails.data.genres[0]} genre</span>
+            : ''}
+
         </SubHeader>
 
         <Content>
-          <MovieList movies={this.movies} />
+          {this.props.movieDetails.data.genres ? <MoviesByGenre genre={this.props.movieDetails.data.genres[0]} /> : ''}
         </Content>
 
         <Footer />
@@ -70,7 +79,7 @@ export class Details extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    movie: state.movieDetails,
+    movieDetails: state.movieDetails
   };
 };
 

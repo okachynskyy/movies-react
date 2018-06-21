@@ -22,13 +22,13 @@ export class Layout extends React.Component {
           <SearchBlock />
         </Header>
         <SubHeader>
-          <SearchCounter count={this.props.movies.length} />
+          <SearchCounter count={this.props.movies.data.length} />
           <SortControls />
         </SubHeader>
 
         <Content>
           <ErrorBoundary>
-            <MovieList movies={this.props.movies} />
+            <MovieList movies={this.props.movies.data} isLoading={this.props.movies.isLoading} />
           </ErrorBoundary>
         </Content>
 

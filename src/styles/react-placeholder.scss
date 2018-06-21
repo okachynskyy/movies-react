@@ -1,0 +1,29 @@
+@import url("~react-placeholder/lib/reactPlaceholder.css");
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.6;
+  }
+}
+
+.text-row,
+.rect-shape,
+.round-shape {
+  background-color: #8c8c8c;
+}
+
+.text-block,
+.media-block,
+.text-row,
+.rect-shape,
+.round-shape {
+  animation: pulse 1.5s infinite ease-in-out;
+}

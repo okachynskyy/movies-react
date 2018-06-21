@@ -1,4 +1,5 @@
 import * as React from "react";
+import { TextRow, TextBlock, RectShape } from 'react-placeholder/lib/placeholders';
 
 export class MovieDetails extends React.PureComponent {
   processDate(fullDate) {
@@ -6,9 +7,9 @@ export class MovieDetails extends React.PureComponent {
     return dateObj.getFullYear();
   }
 
-  render() {
+  renderMovieDetails() {
     return (
-      <div className="movie-details container">
+      <div className="movie-details">
         <img className="movie-image" src={this.props.movie.poster_path} />
         <div className="movie-info">
           <div className="title">{this.props.movie.title}</div>
@@ -21,6 +22,32 @@ export class MovieDetails extends React.PureComponent {
           </div>
           <div className="overview">{this.props.movie.overview}</div>
         </div>
+      </div>
+    );
+  }
+
+  renderPlaceholder() {
+    return (
+      <div className="movie-details-placeholder">
+        <div className="left-side">
+          <RectShape style={{ width: 300, height: 450 }} />
+        </div>
+        <div className="right-side">
+          <br />
+          <TextRow color="#8c8c8c"/>
+          <br />
+          <TextRow color="#8c8c8c" />
+          <br />
+          <TextBlock color="#8c8c8c" rows={12} />
+        </div>
+      </div>
+    );
+  }
+
+  render() {
+    return (
+      <div className="container">
+        {this.props.isLoading ? this.renderPlaceholder() : this.renderMovieDetails()}
       </div>
     );
   }

@@ -2,9 +2,15 @@ import queryString from 'query-string';
 import axios from 'axios';
 import { API_URL } from '../../configs';
 
-export const SEARCH_MOVIES = 'SEARCH_MOVIES';
+export const SEARCH_MOVIES_LOADING = 'SEARCH_MOVIES_LOADING';
+export const SEARCH_MOVIES_COMPLETED = 'SEARCH_MOVIES_COMPLETED';
+export const SEARCH_MOVIES_FAILURE = 'SEARCH_MOVIES_FAILURE';
 
 export const searchMovies = () => (dispatch, getState) => {
+  dispatch({
+    type: SEARCH_MOVIES_LOADING
+  });
+
   const params = {
     search: getState().searchForm.term,
     searchBy: getState().searchForm.searchBy,
@@ -20,8 +26,14 @@ export const searchMovies = () => (dispatch, getState) => {
     })
     .then(movies => {
       dispatch({
-        type: SEARCH_MOVIES,
-        movies
+        type: SEARCH_MOVIES_COMPLETED,
+        payload: movies
       });
     })
+    .catch(error => {
+      dispatch({
+        type: SEARCH_MOVIES_FAILURE,
+        error
+      });
+    });
 }
