@@ -11,7 +11,7 @@ export class SortControlsComponent extends React.Component {
   }
 
   handleSortItemClick() {
-    this.props.searchMovies();
+    this.props.onChange();
   }
 
   render() {

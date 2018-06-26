@@ -12,7 +12,7 @@ export class SearchControls extends React.PureComponent {
           className="search-button"
           size="lg"
           color="red"
-          onClick={this.props.onSearchClick}
+          type="submit"
         >
           Search
           </Button>

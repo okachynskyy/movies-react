@@ -10,6 +10,7 @@ export function App() {
     <Router>
       <Switch>
         <Route exact path="/" component={SearchLayout} />
+        <Route exact path="/search" component={SearchLayout} />
         <Route path="/film/:id" component={DetailsLayout} />
         <Route path="*" component={NotFound} />
       </Switch>
