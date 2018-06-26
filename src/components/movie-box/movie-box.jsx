@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from 'react-router-dom';
 
 export class MovieBox extends React.PureComponent {
   constructor(props) {
@@ -12,8 +13,8 @@ export class MovieBox extends React.PureComponent {
   }
   render() {
     return (
-      <div className="movie-box">
-        <img className="movie-image" src={this.props.movie.poster_path} />
+      <Link to={'/film/' + this.props.movie.id} className="movie-box">
+        <img className="movie-image" src={this.props.movie.poster_path} alt="Movie Poster" />
         <div className="movie-info">
           <div className="title">{this.props.movie.title}</div>
           <div className="year">{this.formatDate(this.props.movie.release_date)}</div>
@@ -23,7 +24,7 @@ export class MovieBox extends React.PureComponent {
             ))}
           </div>
         </div>
-      </div>
+      </Link>
     );
   }
 }

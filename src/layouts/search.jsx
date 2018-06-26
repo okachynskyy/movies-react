@@ -1,4 +1,11 @@
 import * as React from "react";
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
+import queryString from 'query-string'
+
+import './search.scss';
+
 import { Header } from '../components/header';
 import { Content } from '../components/content';
 import { Footer } from '../components/footer';
@@ -9,26 +16,64 @@ import { SearchCounter } from '../components/search-counter';
 import { SortControls } from '../components/sort-controls';
 import { MovieList } from '../components/movie-list'
 import { ErrorBoundary } from '../components/error-boundary';
-import './search.scss';
+import { SearchForm } from '../components/search-form';
 
-import { connect } from 'react-redux';
+import { searchMovies } from '../actions';
+import { setSearchTerm, setSearchBy, setSortBy } from '../actions';
 
 export class Layout extends React.Component {
+  componentDidMount() {
+    const values = queryString.parse(this.props.location.search);
+    if (values.term) {
+      this.props.setSearchTerm(values.term);
+    }
+
+    if (values.searchBy) {
+      this.props.setSearchBy(values.searchBy);
+    }
+
+    if (values.sortBy) {
+      this.props.setSortBy(values.sortBy);
+    }
+
+    this.props.searchMovies();
+  }
+
+  onFormSubmit = (data) => {
+    this.props.searchMovies();
+    this.updateURL();
+  }
+
+  onSortByChange = () => {
+    this.props.searchMovies();
+    this.updateURL();
+  }
+
+  updateURL = () => {
+    const search = queryString.stringify(this.props.searchForm);
+    this.props.history.push({
+      pathname: '/search/',
+      search
+    });
+  }
+
   render() {
     return (
       <React.Fragment>
 
-        <Header>
-          <SearchBlock />
+        <SearchForm onSubmit={this.onFormSubmit}>
+          <Header>
+            <SearchBlock />
+          </Header>
           <SubHeader>
-            <SearchCounter count={this.props.movies.length} />
-            <SortControls />
+            <SearchCounter count={this.props.movies.data.length} />
+            <SortControls onChange={this.onSortByChange} />
           </SubHeader>
-        </Header>
+        </SearchForm>
 
         <Content>
           <ErrorBoundary>
-            <MovieList movies={this.props.movies} />
+            <MovieList movies={this.props.movies.data} isLoading={this.props.movies.isLoading} />
           </ErrorBoundary>
         </Content>
 
@@ -41,11 +86,15 @@ export class Layout extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    movies: state.movies
+    movies: state.movies,
+    searchForm: state.searchForm
   };
 };
 
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators({ searchMovies, setSearchTerm, setSearchBy, setSortBy }, dispatch);
+
 export const SearchLayout = connect(
   mapStateToProps,
-  null
-)(Layout);
+  mapDispatchToProps
+)(withRouter(Layout));

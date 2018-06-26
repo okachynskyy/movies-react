@@ -1,7 +1,8 @@
 import {
-  SEARCH_MOVIES_LOADING,
-  SEARCH_MOVIES_COMPLETED,
-  SEARCH_MOVIES_FAILURE
+  GET_MOVIES_BY_GENRE_LOADING,
+  GET_MOVIES_BY_GENRE_COMPLETED,
+  GET_MOVIES_BY_GENRE_FAILURE,
+  CLEAN_MOVIES_BY_GENRE
 } from '../actions';
 
 const defaultState = {
@@ -12,12 +13,14 @@ const defaultState = {
 
 export default function (state = defaultState, action) {
   switch (action.type) {
-    case SEARCH_MOVIES_LOADING:
+    case GET_MOVIES_BY_GENRE_LOADING:
       return { ...state, isLoading: true };
-    case SEARCH_MOVIES_COMPLETED:
+    case GET_MOVIES_BY_GENRE_COMPLETED:
       return { ...state, data: action.payload, isLoading: false };
-    case SEARCH_MOVIES_FAILURE:
+    case GET_MOVIES_BY_GENRE_FAILURE:
       return { ...state, error: action.error, isLoading: false };
+    case CLEAN_MOVIES_BY_GENRE:
+      return defaultState
   }
   return state;
 }

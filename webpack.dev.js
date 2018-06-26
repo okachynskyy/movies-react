@@ -9,7 +9,8 @@ module.exports = merge(common, {
   devServer: {
     port: process.env.PORT,
     host: process.env.HOST,
-    hot: true
+    hot: true,
+    historyApiFallback: true
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -17,8 +18,5 @@ module.exports = merge(common, {
       filename: "style.css",
       disable: true
     })
-  ],
-  devServer: {
-    hot: true
-  }
+  ]
 });

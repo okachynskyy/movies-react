@@ -1,39 +1,30 @@
 import * as React from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { setSearchTerm } from '../../actions';
 
 export class SearchFieldComponent extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = { term: this.props.term };
-
-    this.onInputChange = this.onInputChange.bind(this);
-    this.onFormSubmit = this.onFormSubmit.bind(this);
+  constructor() {
+    super(...arguments);
   }
 
-  onInputChange(event) {
-    this.setState({ term: event.target.value });
+  onInputChange = (event) => {
     this.props.setSearchTerm(event.target.value);
-  }
-
-  onFormSubmit(event) {
-    event.preventDefault();
-    this.props.onSubmit();
   }
 
   render() {
     return (
-      <form className="search-form" onSubmit={this.onFormSubmit}>
+      <div className="search-field-wrapper">
         <input
-          name="search-term"
+          name="term"
           className="search-field"
           type="search"
-          value={this.state.term}
+          value={this.props.term}
           onChange={this.onInputChange}
           placeholder="Enter search term..."
         />
         <span className="search-field-icon">&#8617;</span>
-      </form>
+      </div>
     );
   }
 }
@@ -42,13 +33,10 @@ const mapStateToProps = (state, ownProps) => ({
   term: state.searchForm.term
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  setSearchTerm: term => {
-    dispatch(
-      setSearchTerm(term)
-    );
-  }
-});
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators({
+    setSearchTerm
+  }, dispatch);
 
 export const SearchField = connect(
   mapStateToProps,

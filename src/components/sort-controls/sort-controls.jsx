@@ -10,9 +10,10 @@ export class SortControlsComponent extends React.Component {
     this.handleSortItemClick = this.handleSortItemClick.bind(this);
   }
 
-  handleSortItemClick(sortBy) {
-    this.props.searchMovies(this.props.searchForm, sortBy);
+  handleSortItemClick() {
+    this.props.onChange();
   }
+
   render() {
     return (
       <div className="sort-controls">
@@ -24,19 +25,15 @@ export class SortControlsComponent extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  searchForm: state.searchForm
-});
-
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  searchMovies: (searchForm, sortBy) => {
+  searchMovies: () => {
     dispatch(
-      searchMovies({ ...searchForm, sortBy })
+      searchMovies()
     );
   }
 });
 
 export const SortControls = connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(SortControlsComponent);

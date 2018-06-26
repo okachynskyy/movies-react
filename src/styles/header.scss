@@ -1,5 +1,10 @@
 .main-header {
   position: relative;
+  .site-name {
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
 }
 
 .main-header:after {
