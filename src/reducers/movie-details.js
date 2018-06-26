@@ -1,7 +1,8 @@
 import {
   GET_MOVIE_DETAILS_LOADING,
   GET_MOVIE_DETAILS_COMPLETE,
-  GET_MOVIE_DETAILS_FAILURE
+  GET_MOVIE_DETAILS_FAILURE,
+  CLEAN_MOVIE_DETAILS
 } from '../actions';
 
 const defaultState = {
@@ -18,6 +19,8 @@ export default function (state = defaultState, action) {
       return { ...state, data: action.movieDetails, isLoading: false };
     case GET_MOVIE_DETAILS_FAILURE:
       return { ...state, error: action.error, isLoading: false };
+    case CLEAN_MOVIE_DETAILS:
+      return defaultState;
   }
   return state;
 }

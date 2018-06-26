@@ -14,7 +14,7 @@ import { MovieDetails } from '../components/movie-details';
 import { SubHeader } from '../components/sub-header';
 import { MoviesByGenre } from '../components/movies-by-genre';
 
-import { getMovieDetails } from '../actions';
+import { getMovieDetails, cleanMovieDetails } from '../actions';
 import './details.scss';
 
 export class Details extends React.Component {
@@ -32,6 +32,10 @@ export class Details extends React.Component {
     if (nextProps.match.params.id !== this.props.match.params.id) {
       this.props.getMovieDetails(nextProps.match.params.id);
     }
+  }
+
+  componentWillUnmount() {
+    this.props.cleanMovieDetails();
   }
 
   constructor() {
@@ -84,7 +88,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ getMovieDetails }, dispatch);
+  bindActionCreators({ getMovieDetails, cleanMovieDetails }, dispatch);
 
 export const DetailsLayout = withRouter(connect(
   mapStateToProps,

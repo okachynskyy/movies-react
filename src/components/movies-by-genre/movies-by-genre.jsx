@@ -2,7 +2,7 @@ import * as React from "react";
 import { MovieList } from '../movie-list';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getMoviesByGenre } from '../../actions';
+import { getMoviesByGenre, cleanMoviesByGenre } from '../../actions';
 
 export class MoviesByGenreComponent extends React.Component {
   constructor() {
@@ -11,6 +11,10 @@ export class MoviesByGenreComponent extends React.Component {
 
   componentDidMount() {
     this.props.getMoviesByGenre(this.props.genre);
+  }
+
+  componentWillUnmount() {
+    this.props.cleanMoviesByGenre();
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
@@ -33,7 +37,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ getMoviesByGenre }, dispatch);
+  bindActionCreators({ getMoviesByGenre, cleanMoviesByGenre }, dispatch);
 
 export const MoviesByGenre = connect(
   mapStateToProps,

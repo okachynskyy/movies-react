@@ -1,7 +1,8 @@
 import {
   GET_MOVIES_BY_GENRE_LOADING,
   GET_MOVIES_BY_GENRE_COMPLETED,
-  GET_MOVIES_BY_GENRE_FAILURE
+  GET_MOVIES_BY_GENRE_FAILURE,
+  CLEAN_MOVIES_BY_GENRE
 } from '../actions';
 
 const defaultState = {
@@ -18,6 +19,8 @@ export default function (state = defaultState, action) {
       return { ...state, data: action.payload, isLoading: false };
     case GET_MOVIES_BY_GENRE_FAILURE:
       return { ...state, error: action.error, isLoading: false };
+    case CLEAN_MOVIES_BY_GENRE:
+      return defaultState
   }
   return state;
 }

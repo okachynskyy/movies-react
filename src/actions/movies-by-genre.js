@@ -6,10 +6,12 @@ import { searchByGenres } from '../constants';
 export const GET_MOVIES_BY_GENRE_LOADING = 'GET_MOVIES_BY_GENRE_LOADING';
 export const GET_MOVIES_BY_GENRE_COMPLETED = 'GET_MOVIES_BY_GENRE_COMPLETED';
 export const GET_MOVIES_BY_GENRE_FAILURE = 'GET_MOVIES_BY_GENRE_FAILURE';
+export const CLEAN_MOVIES_BY_GENRE = 'CLEAN_MOVIES_BY_GENRE';
 
 export const getMoviesByGenre = (genre) => (dispatch, getState) => {
   dispatch({
-    type: GET_MOVIES_BY_GENRE_LOADING
+    type: GET_MOVIES_BY_GENRE_LOADING,
+    payload: genre
   });
 
   const params = {
@@ -35,3 +37,10 @@ export const getMoviesByGenre = (genre) => (dispatch, getState) => {
       });
     })
 }
+
+
+export const cleanMoviesByGenre = () => {
+  return {
+    type: CLEAN_MOVIES_BY_GENRE
+  }
+};

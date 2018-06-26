@@ -6,13 +6,13 @@ export const SEARCH_MOVIES_LOADING = 'SEARCH_MOVIES_LOADING';
 export const SEARCH_MOVIES_COMPLETED = 'SEARCH_MOVIES_COMPLETED';
 export const SEARCH_MOVIES_FAILURE = 'SEARCH_MOVIES_FAILURE';
 
-export const searchMovies = () => (dispatch, getState) => {
+export const searchMovies = (term) => (dispatch, getState) => {
   dispatch({
     type: SEARCH_MOVIES_LOADING
   });
 
   const params = {
-    search: getState().searchForm.term,
+    search: term || getState().searchForm.term,
     searchBy: getState().searchForm.searchBy,
     sortBy: getState().searchForm.sortBy,
     sortOrder: 'desc'
