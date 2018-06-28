@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
+  mode: process.env.NODE_ENV,
   context: path.join(__dirname, 'src'),
   entry: './index.js',
   resolve: {
@@ -49,9 +50,9 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
-    new HtmlWebpackPlugin({
-      template: './index.html'
-    }),
+    // new HtmlWebpackPlugin({
+    //   template: './index.html'
+    // }),
     new ExtractTextPlugin({
       filename: "style.css"
     })

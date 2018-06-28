@@ -1,14 +1,18 @@
 {
-  "extends": [
-    "es2015",
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ],
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "env": {
+      "browser": true,
+      "node": true
+  },
+  "rules": {
+    "global-require": "off",
+    "import/no-extraneous-dependencies": "off",
+    "react/jsx-filename-extension": "off",
+    "jsx-a11y/anchor-is-valid": ["error", {
+      "components": ["Link"],
+      "specialLink": ["to"],
+      "aspects": ["noHref", "invalidHref", "preferButton"]
+    }]
   }
 }

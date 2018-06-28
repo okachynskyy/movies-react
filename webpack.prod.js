@@ -3,6 +3,7 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
+  name: 'client',
   mode: 'production',
   devtool: 'source-map',
   plugins: [

@@ -14,7 +14,6 @@ const routes = [
       },
       {
         path: '/search',
-        exact: true,
         component: SearchLayout
       },
       {
