@@ -1,1 +1,1 @@
-export const API_URL = 'http://react-cdp-api.herokuapp.com';
+export const API_URL = 'https://react-cdp-api.herokuapp.com';
