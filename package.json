@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "webpack-dev-server --config webpack.dev.js",
+    "start": "cross-env NODE_ENV=development  node ./server",
     "build-dev": "webpack --config webpack.dev.js",
     "build-prod": "webpack --config webpack.prod.js",
     "serve-dist": "http-server ./dist",
@@ -43,9 +43,7 @@
     "react-router-config": "^1.0.0-beta.4",
     "react-router-dom": "^4.2.2",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.2.0"
-  },
-  "devDependencies": {
+    "redux-thunk": "^2.2.0",
     "babel-core": "6.26.0",
     "babel-eslint": "^8.2.5",
     "babel-jest": "^22.4.3",
@@ -55,7 +53,6 @@
     "babel-preset-stage-2": "6.24.1",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.11",
-    "cypress": "^2.1.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.1",
