@@ -23,11 +23,7 @@ import {
 } from '../actions';
 
 export class Layout extends React.Component {
-  static firstTimeServer = false;
-
   static fetchData(store, match, query) {
-    console.log('fetchData', query);
-
     if (Object.keys(query).length !== 0) {
       store.dispatch(setSearchTerm(query.term));
       store.dispatch(setSearchBy(query.searchBy));

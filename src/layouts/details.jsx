@@ -30,7 +30,6 @@ export class Details extends React.Component {
 
   componentDidMount() {
     if (this.props.match.params.id != this.props.movieDetails.data.id) {
-      console.log(this.props.match.params.id, this.props.movieDetails.data.id)
       this.props.getMovieDetails(this.props.match.params.id);
     }
   }
