@@ -1,8 +1,8 @@
-import * as React from "react";
+import * as React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import queryString from 'query-string'
+import queryString from 'query-string';
 
 import './search.scss';
 
@@ -14,16 +14,34 @@ import { SearchBlock } from '../components/search-block';
 import { SubHeader } from '../components/sub-header';
 import { SearchCounter } from '../components/search-counter';
 import { SortControls } from '../components/sort-controls';
-import { MovieList } from '../components/movie-list'
+import { MovieList } from '../components/movie-list';
 import { ErrorBoundary } from '../components/error-boundary';
 import { SearchForm } from '../components/search-form';
 
-import { searchMovies } from '../actions';
-import { setSearchTerm, setSearchBy, setSortBy } from '../actions';
+import {
+  searchMovies, setSearchTerm, setSearchBy, setSortBy,
+} from '../actions';
 
 export class Layout extends React.Component {
+  static fetchData(store, match, query) {
+    if (Object.keys(query).length !== 0) {
+      store.dispatch(setSearchTerm(query.term));
+      store.dispatch(setSearchBy(query.searchBy));
+      store.dispatch(setSortBy(query.sortBy));
+    }
+    return store.dispatch(searchMovies());
+  }
+
   componentDidMount() {
     const values = queryString.parse(this.props.location.search);
+
+    if (
+      this.props.searchForm.term === values.term
+      && this.props.searchForm.searchBy === values.searchBy
+      && this.props.searchForm.sortBy === values.sortBy) {
+      return;
+    }
+
     if (values.term) {
       this.props.setSearchTerm(values.term);
     }

@@ -18,6 +18,10 @@ import { getMovieDetails, cleanMovieDetails } from '../actions';
 import './details.scss';
 
 export class Details extends React.Component {
+  static fetchData(store, match) {
+    return store.dispatch(getMovieDetails(match.params.id));
+  }
+
   static propTypes = {
     match: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,
@@ -25,7 +29,9 @@ export class Details extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getMovieDetails(this.props.match.params.id);
+    if (this.props.match.params.id != this.props.movieDetails.data.id) {
+      this.props.getMovieDetails(this.props.match.params.id);
+    }
   }
 
   componentWillReceiveProps(nextProps) {

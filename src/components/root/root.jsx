@@ -1,14 +1,22 @@
+import 'babel-polyfill';
 import React from 'react';
 import { Provider } from 'react-redux';
-import { App } from '../app';
-import { ErrorBoundary } from '../error-boundary';
 
-export function Root({ store }) {
+import { Switch } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
+import { ErrorBoundary } from '../error-boundary';
+import routes from '../../routes';
+
+export function Root({ Router, location, context, store }) {
   return (
     <ErrorBoundary>
       <Provider store={store}>
-        <App />
+        <Router location={location} context={context}>
+          <Switch>
+            {renderRoutes(routes)}
+          </Switch>
+        </Router>
       </Provider>
     </ErrorBoundary>
-  )
-};
+  );
+}

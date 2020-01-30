@@ -4,7 +4,7 @@ import { searchByTitle, sortByReleaseDate } from '../constants';
 const defaultState = {
   term: '',
   searchBy: searchByTitle,
-  sortBy: sortByReleaseDate
+  sortBy: sortByReleaseDate,
 };
 
 export default function (state = defaultState, action) {
